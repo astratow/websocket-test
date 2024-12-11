@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Connection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>WebSocket Connection Test</h1>
+
+  <!-- Status will be displayed here -->
+  <div id="status">Connecting...</div>
+
+  <!-- Include socket.js here -->
+  <script src="socket.js"></script>
+
+  <script>
+        // Listen for connection status changes
+        window.addEventListener('connectionStatusChanged', function(event) {
+            const statusElement = document.getElementById('status');
+            if (statusElement) {
+                statusElement.textContent = event.detail;  // Update the status with event detail (Connected, Disconnected, etc.)
+            }
+        });
+    </script>
+</body>
+</html>
